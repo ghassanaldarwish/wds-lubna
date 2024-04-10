@@ -13,7 +13,7 @@ pipeline {
                 //     sh "echo 'DOCKER_USERNAME=${DOCKER_USERNAME}' > .env"
                 // }
                 sh """
-                DOCKER_BUILDKIT=1 docker build -t ghassanaldarwish/wds-test .
+                DOCKER_BUILDKIT=1 docker build -t ghassanaldarwish/wds-lubna .
                 """
             }
         }
@@ -25,10 +25,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                // Execute the ansible playbook
-                // sh """
-                // ansible-playbook -i /usr/inventory --key-file /usr/.ssh/id_ed25519 ansible.yaml
-                // """
+
+                sh """
+                docker-compose -f docker-compose.traefik.yaml up -d
+                """
             }
         }
     }
