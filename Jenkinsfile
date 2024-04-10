@@ -12,6 +12,9 @@ pipeline {
                 // script {
                 //     sh "echo 'DOCKER_USERNAME=${DOCKER_USERNAME}' > .env"
                 // }
+                sh """
+                DOCKER_BUILDKIT=1 docker build -t ghassanaldarwish/wds-test .
+                """
             }
         }
         stage('Test') {
