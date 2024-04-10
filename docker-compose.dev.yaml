@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  wds-workspace-nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wds-workspace-nginx.rule=Host(`workspace.localhost`)"
+      - "traefik.http.services.wds-workspace-nginx.loadbalancer.server.port=80"
+    networks:
+      - app-workspace-network
+      - frontend
+
+  wds-workspace:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+
+    # env_file:
+    #   - ./.env.local
+    volumes:
+      - ./app:/app/app
+      - ./src:/app/src
+      - ./public:/app/public
+
+networks:
+  app-workspace-network:
+    name: app-workspace-network
+
+  frontend:
+    name: frontend

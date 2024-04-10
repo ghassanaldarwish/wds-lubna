@@ -1,0 +1,53 @@
+---
+- name: Clone the Github repo and setup wds-workspace project
+  hosts: wds
+  become: yes
+  vars:
+    repo_url: "git@github.com:ghassanaldarwish/wds-workspace.git"
+    destination: "/root/projects/wds-cluster"
+    project_name: "wds-workspace"
+    GIT_BRANCH: main
+  tasks:
+    - name: Ensure that git is installed
+      ansible.builtin.package:
+        name: git
+        state: present
+
+    - name: Ensure directory exists
+      ansible.builtin.file:
+        path: "{{ destination }}/{{ project_name }}"
+        state: directory
+        mode: "0755"
+
+    - name: Check if the repository is already cloned
+      ansible.builtin.stat:
+        path: "{{ destination }}/{{ project_name }}/.git"
+      register: git_repo
+
+    - name: Clone the repository if not already cloned
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ destination }}/{{ project_name }}"
+        version: "{{ GIT_BRANCH }}"
+        accept_hostkey: yes
+      when: not git_repo.stat.exists
+
+    - name: Pull updates from the repository if it is already cloned
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ destination }}/{{ project_name }}"
+        version: "{{ GIT_BRANCH }}"
+        accept_hostkey: yes
+        update: yes
+        force: yes
+      when: git_repo.stat.exists
+
+    - name: Pull the latest images wds-workspace
+      ansible.builtin.command:
+        cmd: docker-compose -f "{{ destination }}/{{ project_name }}/docker-compose.yaml" pull
+        chdir: "{{ destination }}/{{ project_name }}"
+
+    - name: Run Docker Compose to start workspace.webdrei.com site
+      ansible.builtin.command:
+        cmd: docker-compose -f "{{ destination }}/{{ project_name }}/docker-compose.yaml" up -d --build
+        chdir: "{{ destination }}/{{ project_name }}"
