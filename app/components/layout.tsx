@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex">
-      <aside className="w-[300px] py-4 h-[100vh]">
+      <aside className="w-[300px] -z-10 py-4 h-[100vh] sticky top-[70px]">
         <h2 className="font-bold mb-4">Components</h2>
         <ul>
           <li>
