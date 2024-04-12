@@ -1,8 +1,8 @@
 version: "3.8"
 # commands url http://host.docker.internal:6777
 services:
-  wds-lubna:
-    image: "ghassanaldarwish/wds-lubna"
+  wds-ui:
+    image: "ghassanaldarwish/wds-ui"
     restart: unless-stopped
     networks:
       - app-workspace-network
@@ -14,11 +14,11 @@ services:
       - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-lubna.rule=Host(`lubna.webdrei.com`)"
-      - "traefik.http.routers.wds-lubna.entrypoints=websecure"
-      - "traefik.http.routers.wds-lubna.tls.certresolver=letsencrypt"
-      - traefik.http.routers.wds-lubna.tls=true
-      - "traefik.http.services.wds-lubna.loadbalancer.server.port=3000"
+      - "traefik.http.routers.wds-ui.rule=Host(`ui.webdrei.com`)"
+      - "traefik.http.routers.wds-ui.entrypoints=websecure"
+      - "traefik.http.routers.wds-ui.tls.certresolver=letsencrypt"
+      - traefik.http.routers.wds-ui.tls=true
+      - "traefik.http.services.wds-ui.loadbalancer.server.port=3000"
     # env_file:
     #   - ../environment/wds-workspace/.env.local
 
