@@ -18,9 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="pt-[70px] my-4 container min-h-screen">
-          {children}
-        </main>
+        <main className="pt-[70px] container min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

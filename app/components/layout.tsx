@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-[100vh] flex container">
+    <div className="flex">
       <aside className="w-[300px] py-4 h-[100vh] border-r-2 border-secondary">
         <h2 className="font-bold mb-4">Components</h2>
         <ul>
