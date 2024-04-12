@@ -1,0 +1,381 @@
+import MdxLayout from "@/components/layouts/mdx-layout";
+import Button from "@/ui/button";
+
+export default (props) => <MdxLayout {...props} />;
+
+## String Type
+
+In JavaScript, the textual data is stored as strings. There is no separate type for
+a single character.
+
+The internal format for strings is always UTF-16, it is not tied to the page encoding.
+
+A string (or a text string) is a series of characters like "John Doe".
+
+Strings are written with quotes. You can use single or double quotes or backticks:
+
+```
+let carName1 = "Volvo XC60"; // Using double quotes
+let carName2 = 'Volvo XC60'; // Using single quotes
+let carName3 = `Volvo XC60`; // Using backticks
+```
+
+## Quotes
+
+In JavaScript, there are 3 types of quotes.
+
+- Double quotes: "Volvo XC60".
+- Single quotes: 'Volvo XC60'.
+- Backticks: `Volvo XC60`.
+
+Double and single quotes are “simple” quotes. There’s practically no difference between them in JavaScript.
+
+Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in `${…}`, for example:
+
+```javascript
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+```
+
+The expression inside is evaluated and the result becomes a part of the string. We can put anything in there: a variable like name or an arithmetical expression like 1 + 2 or something more complex.
+
+Please note that this can only be done in backticks. Other quotes don’t have this embedding functionality!
+
+```javascript
+console.log("the result is ${1 + 2}"); // the result is ${1 + 2} (double quotes do nothing)
+```
+
+## Special characters
+
+It is still possible to create multiline strings with single and double quotes by using a so-called “newline character”, written as `\n`, which denotes a line break:
+
+```javascript
+let guestList = "Guests:\n  John\n  Pete\n  Mary";
+
+console.log(guestList); // a multiline list of guests, same as above
+```
+
+As you can see, all special characters start with a backslash character \. It is also called an “escape character”.
+
+Because it’s so special, if we need to show an actual backslash \ within the string, we need to double it:
+
+```javascript
+console.log(`The backslash: \\`); // The backslash: \
+```
+
+So-called “escaped” quotes \', \", \` are used to insert a quote into the same-quoted string.
+
+For instance:
+
+```javascript
+console.log("I'm the Walrus!"); // I'm the Walrus!
+```
+
+As you can see, we have to prepend the inner quote by the backslash \', because otherwise it would indicate the string end.
+
+Of course, only the quotes that are the same as the enclosing ones need to be escaped. So, as a more elegant solution, we could switch to double quotes or backticks instead:
+
+```javascript
+console.log("I'm the Walrus!"); // I'm the Walrus!
+```
+
+## String length
+
+To find the length of a string, use the built-in length property. The length property has the string length:
+
+```javascript
+console.log(`webdrei`.length); // 5
+```
+
+```javascript
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let textLength = text.length;
+console.log(textLength); // 26
+```
+
+## Accessing characters
+
+To get a character at position pos, use square brackets [pos] or. The first character starts from the zero position:
+
+```javascript
+let str = `Hello`;
+
+console.log(str.length); // 5
+console.log(str[0]); // H
+console.log(str[2]); // l
+console.log(str[3]); // l
+console.log(str[4]); // o
+```
+
+Find the last character in a string dynamically with `string.length - 1`:
+
+```javascript
+let myName = `simple assignment operator`;
+
+console.log(myName.length - 1); // r
+```
+
+## Assignment operators
+
+The simple assignment operator `=` is used to assign a value to a variable. The assignment operation evaluates to the assigned value. Chaining the assignment operator is possible in order to assign a single value to multiple variables.
+
+```javascript
+let x = 2;
+let y = 3;
+
+console.log(x);
+// expected output: 2
+
+console.log(y);
+// expected output: 3
+```
+
+```javascript
+let name = "Pilar";
+
+console.log(name);
+// expected output: Pilar
+```
+
+When you assign a new value to a variable, you write the variable name, followed by =, followed by your new value.
+
+```javascript
+// Declaring a variable
+let name = "Zell";
+```
+
+It seems okay to reassign name value:
+
+```javascript
+// Declaring a variable
+let name = "Zell";
+
+// Reassigning a variable
+name = "Vincy";
+```
+
+Addition assignment `+=`
+
+The addition assignment operator (+=) adds the value of the right operand to a variable and assigns the result to the variable. The types of the two operands determine the behavior of the addition assignment operator. Addition or concatenation is possible.
+
+```javascript
+let a = 2;
+let b = "hello";
+
+console.log((a += 3)); // addition
+// expected output: 5
+
+console.log((b += " world")); // concatenation
+// expected output: "hello world"
+```
+
+Subtraction assignment `-=`
+
+```javascript
+let a = 2;
+
+console.log((a -= 3));
+// expected output: -1
+```
+
+Assignment operators:
+
+Counting iterations `++` and `--`
+
+```javascript
+let a = 2;
+
+console.log(a); // 2
+a++;
+console.log(a); // 3
+```
+
+```javascript
+let b = 9;
+
+console.log(a); // 9
+a--;
+console.log(a); // 8
+```
+
+## Concatenate Strings
+
+The same + operator you use for adding two numbers can be used to concatenate two strings.
+
+```javascript
+let str = "Hello" + " " + "World";
+console.log(str); // 'Hello World'
+```
+
+You can also use +=, where a += b is a shorthand for a = a + b.
+
+```javascript
+let str = "Hello";
+str += " ";
+str += "World";
+console.log(str); // 'Hello World'
+```
+
+## comparison operators
+
+A comparison operator compares its operands and returns a logical value based on whether the comparison is true. The operands can be numerical, string, logical, or object values. Strings are compared based on standard lexicographical ordering, using Unicode values. In most cases, if the two operands are not of the same type, JavaScript attempts to convert them to an appropriate type for the comparison. This behavior generally results in comparing the operands numerically. The sole exceptions to type conversion within comparisons involve the === and !== operators, which perform strict equality and inequality comparisons. These operators do not attempt to convert the operands to compatible types before checking equality.
+
+```javascript
+let x = 7;
+console.log(x == 8); // false
+console.log(x > 8); // false
+console.log(x < 8); // true
+console.log(x <= 7); // true
+console.log(x >= 7); // true
+```
+
+```javascript
+let y = "8";
+console.log(y == 8); // true
+console.log(y === 8); // false
+```
+
+```javascript
+let y = 5;
+console.log(y != 8); // true
+```
+
+## const
+
+Constants are block-scoped, much like variables declared using the `let` keyword. The value of a constant can't be changed through reassignment.
+
+- The const keyword was introduced in ES6 (2015).
+
+- Variables defined with const cannot be Redeclared.
+
+- Variables defined with const cannot be Reassigned.
+
+- Variables defined with const have Block Scope.
+
+```javascript
+// With let
+let lang = "Javascript";
+console.log(lang); // Javascript
+
+lang = "PHP";
+console.log(lang); // PHP
+
+// with const
+
+const name = "Alex";
+console.log(name); // Alex
+name = "Tommy";
+
+console.log(name); // Error ==> expected output: TypeError: invalid assignment to const
+```
+
+## Mathematical operators
+
+Mathematical operators are the basic operators that we use to do sums in JavaScript:
+
+```javascript
+let x = 3; // x contains the value 3
+let y = 4; // y contains the value 4
+console.log(x + y); // 7
+console.log(x - y); // 1
+```
+
+## Remainder (Modulus)
+
+The remainder operator `%` returns the remainder left over when one operand is divided by a second operand. It always takes the sign of the dividend.
+
+```javascript
+console.log(13 % 5);
+// expected output: 3
+
+console.log(4 % 2);
+// expected output: 0
+```
+
+The modulus operator `%` returns the division remainder.
+
+```javascript
+let x = 5;
+let y = 2;
+let z = x % y;
+
+console.log(z);
+// expected output: 1
+```
+
+The remainder `/` modulus operator `%` returns the remainder after (integer) division.
+
+```javascript
+console.log(42 % 10); //  2
+console.log(42 % -10); //  2
+console.log(-42 % 10); // -2
+console.log(-42 % -10); // -2
+console.log(-40 % 10); // -0
+console.log(40 % 10); //  0
+```
+
+This operator returns the remainder left over when one operand is divided by a second operand. When the first operand is a negative value, the return value will always be negative, and vice versa for positive values.
+
+In the example above, `10` can be subtracted four times from `42` before there is not enough left to subtract again without it changing sign. The remainder is thus: `42 - 4 * 10 = 2`.
+
+The remainder operator may be useful for the following problem:
+
+Test if an integer is (not) divisible by another number:
+
+```
+ x % 4 == 0 // true if x is divisible by 4
+ x % 2 == 0 // true if x is even number
+ x % 2 != 0 // true if x is odd number
+```
+
+Since `0 === -0`, this also works for `x <= -0`.
+
+## Conditional expressions: the ternary operator
+
+The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as an alternative to an if...else statement.
+
+Syntax:
+
+```javascript
+condition ? exprIfTrue : exprIfFalse;
+```
+
+- condition: An expression whose value is used as a condition.
+
+- exprIfTrue: An expression which is executed if the condition evaluates to a truthy value (one which equals or can be converted to true).
+
+- exprIfFalse: An expression which is executed if the condition is falsy (that is, has a value which can be converted to false).
+
+```javascript
+let age = 26;
+let beverage = age >= 21 ? "Beer" : "Juice";
+console.log(beverage); // "Beer"
+```
+
+```javascript
+let age = 18;
+let message;
+
+age >= 16 ? (message = "You can drive.") : (message = "You cannot drive.");
+
+console.log(message); // You can drive.
+```
+
+---
+
+## Resources:
+
+- [JS Strings](https://javascript.info/string#special-characters)
+- [Data types](https://javascript.info/types#number)
+- [JavaScript Strings](https://www.w3schools.com/js/js_strings.asp)
+- [JavaScript Statements](https://www.w3schools.com/js/js_statements.asp#:~:text=JavaScript%20Programs,programming%20instructions%20are%20called%20statements.)
+- [JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#string_type)
+- [JS Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment)
+- [Why you shouldn’t reassign values in JavaScript](https://zellwk.com/blog/dont-reassign)
+- [JavaScript Ternary Operator](https://www.javascripttutorial.net/javascript-ternary-operator/)
+- [Remainder](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
