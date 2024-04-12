@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="w-[100vw] bg-background fixed top-0 h-[70px] border-b-2 border-secondary flex  items-center">
       <div className="flex container justify-between">
         <div className="flex gap-6">
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-3xl font-bold">
             <Link href="/">Webdrei UI</Link>
           </h1>
           <ul className="flex  items-center">
