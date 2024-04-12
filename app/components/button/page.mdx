@@ -1,8 +1,7 @@
 import MdxLayout from "@/components/layouts/mdx-layout";
 import Button from "@/ui/button";
 
-export default (props) => <MdxLayout {...props} />;
-
+<MdxLayout>
 ## String Type
 
 In JavaScript, the textual data is stored as strings. There is no separate type for
@@ -14,9 +13,9 @@ A string (or a text string) is a series of characters like "John Doe".
 
 Strings are written with quotes. You can use single or double quotes or backticks:
 
-```
+```javascript
 let carName1 = "Volvo XC60"; // Using double quotes
-let carName2 = 'Volvo XC60'; // Using single quotes
+let carName2 = "Volvo XC60"; // Using single quotes
 let carName3 = `Volvo XC60`; // Using backticks
 ```
 
@@ -33,6 +32,62 @@ Double and single quotes are “simple” quotes. There’s practically no diffe
 Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in `${…}`, for example:
 
 ```javascript
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
+let name = "John";
+
+// embed a variable
+console.log(`Hello, ${name}!`); // Hello, John!
+
+// embed an expression
+console.log(`the result is ${1 + 2}`); // the result is 3
+
 let name = "John";
 
 // embed a variable
@@ -327,10 +382,10 @@ The remainder operator may be useful for the following problem:
 
 Test if an integer is (not) divisible by another number:
 
-```
- x % 4 == 0 // true if x is divisible by 4
- x % 2 == 0 // true if x is even number
- x % 2 != 0 // true if x is odd number
+```javascript
+x % 4 == 0; // true if x is divisible by 4
+x % 2 == 0; // true if x is even number
+x % 2 != 0; // true if x is odd number
 ```
 
 Since `0 === -0`, this also works for `x <= -0`.
@@ -379,3 +434,5 @@ console.log(message); // You can drive.
 - [Why you shouldn’t reassign values in JavaScript](https://zellwk.com/blog/dont-reassign)
 - [JavaScript Ternary Operator](https://www.javascripttutorial.net/javascript-ternary-operator/)
 - [Remainder](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
+
+</MdxLayout>

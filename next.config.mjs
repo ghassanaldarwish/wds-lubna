@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
-import rehypePrism from "@mapbox/rehype-prism";
+
+import rehypeHighlight from "rehype-highlight";
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkGfm],
-    // rehypePlugins: [rehypePrism],
+    rehypePlugins: [rehypeHighlight],
   },
 });
 const nextConfig = {

@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex">
-      <aside className="w-[300px] py-4 h-[100vh] border-r-2 border-secondary">
+      <aside className="w-[300px] py-4 h-[100vh]">
         <h2 className="font-bold mb-4">Components</h2>
         <ul>
           <li>
@@ -21,7 +21,7 @@ export default function RootLayout({
           </li>
         </ul>
       </aside>
-      <main className="py-4">{children}</main>
+      <main className="py-4 w-full">{children}</main>
     </div>
   );
 }
