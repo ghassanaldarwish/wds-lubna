@@ -1,4 +1,3 @@
-import Copy from "@/components/mdx/pre";
 import { type MDXComponents } from "mdx/types";
 import Image, { type ImageProps } from "next/image";
 
