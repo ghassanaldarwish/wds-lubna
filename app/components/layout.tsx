@@ -59,6 +59,18 @@ export default function RootLayout({
           <li>
             <Link href="/components/background-stars">Background Stars</Link>
           </li>
+
+          <li>
+            <Link href="/components/select">Select</Link>
+          </li>
+
+          <li>
+            <Link href="/components/reorder-list">Reorder List</Link>
+          </li>
+
+          <li>
+            <Link href="/components/switch">Switch</Link>
+          </li>
         </ul>
       </aside>
       <main className="py-4 w-full">{children}</main>
