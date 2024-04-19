@@ -8,23 +8,11 @@ import { usePathname } from "next/navigation";
 import sidebar from "@/config/sidebar";
 import { cn } from "@/lib/utils";
 export default function Sidebar({ className }: { className?: string }) {
-  const listRef = React.useRef<HTMLUListElement>(null);
   const pathname = usePathname();
   const sidebarData = Object.values(sidebar);
-  useEffect(() => {
-    if (!listRef.current) return;
-
-    const links = listRef.current.querySelectorAll("li[data-path]");
-    links.forEach((link) => {
-      if (link.getAttribute("data-path") === pathname) {
-        link.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    });
-  }, [pathname]);
 
   return (
     <aside
-      ref={listRef}
       className={cn(
         "fixed top-14  z-0 -ml-2  h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block",
         className
@@ -35,16 +23,15 @@ export default function Sidebar({ className }: { className?: string }) {
           {sidebarData.map((item) => (
             <div className="mb-4" key={item.title}>
               <h2 className="font-bold text-lg mb-4">{item.title}</h2>
-              <motion.ul layout className="flex flex-col gap-2" ref={listRef}>
+              <motion.ul layout className="flex flex-col gap-2">
                 {item.navigator.map((child) => (
                   <motion.li
+                    className="hover:underline"
                     whileHover={{
                       scale: 1.05,
                       originX: 0,
-                      textDecoration: "underline",
                     }}
                     transition={{ duration: 0.2 }}
-                    data-path={`/${child.path}`}
                     animate={{
                       fontWeight: pathname === `/${child.path}` ? "bold" : "",
                     }}
