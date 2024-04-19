@@ -1,10 +1,13 @@
-import Hero from "@/components/hero";
-import Image from "next/image";
+import AuroraHero from "@/components/heros/aurora";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Navbar className="bg-transparent border-transparent text-background" />
+      <AuroraHero />
+      {/* <Footer /> */}
     </>
   );
 }

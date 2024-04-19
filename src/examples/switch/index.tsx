@@ -17,7 +17,7 @@ export default function SwitchDemo() {
   const toggleSwitch = () => setIsOn(!isOn);
   return (
     <motion.div
-      className="flex peer p-[0.2rem] rounded-2xl w-[2.3rem] h-[1.2rem] cursor-pointer  border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[isOn=true]:bg-primary data-[isOn=false]:bg-input data-[isOn=true]:justify-end data-[isOn=false]:justify-start"
+      className="flex not-prose peer p-[0.2rem] rounded-2xl w-[2.3rem] h-[1.2rem] cursor-pointer  border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[isOn=true]:bg-primary data-[isOn=false]:bg-input data-[isOn=true]:justify-end data-[isOn=false]:justify-start"
       data-isOn={isOn}
       onClick={toggleSwitch}
     >

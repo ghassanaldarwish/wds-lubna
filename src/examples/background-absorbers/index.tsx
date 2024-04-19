@@ -81,10 +81,10 @@ export default function BackgroundAbsorbers() {
           width: 1,
         },
         move: {
-          direction: MoveDirection?.none,
+          direction: "none",
           enable: true,
           outModes: {
-            default: OutMode?.out,
+            default: "out",
           },
           random: false,
           speed: 6,

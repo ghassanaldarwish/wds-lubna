@@ -26,7 +26,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/components/button/page.mdx"
+    "app/components/button/page.mdx",
+    "app/components/background-absorbers/page.mdx",
+    "app/components/switch/page.mdx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "scripts"]
 }
