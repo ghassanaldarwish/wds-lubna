@@ -26,7 +26,7 @@ export default function Sidebar({ className }: { className?: string }) {
     <aside
       ref={listRef}
       className={cn(
-        "fixed top-14  z-0 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block",
+        "fixed top-14  z-0 -ml-2  h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block",
         className
       )}
     >

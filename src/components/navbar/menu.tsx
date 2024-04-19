@@ -22,7 +22,7 @@ export default function Menu() {
           <MenuIcon size={32} />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="">
         <Sidebar />
       </SheetContent>
     </Sheet>
