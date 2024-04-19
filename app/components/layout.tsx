@@ -25,7 +25,7 @@ export default function RootLayout({
       <Navbar />
 
       <div className="flex container pt-[70px]">
-        <Sidebar />
+        <Sidebar className="hidden md:block" />
         <main className="py-4 w-full pl-8">{children}</main>
       </div>
       <Footer />
